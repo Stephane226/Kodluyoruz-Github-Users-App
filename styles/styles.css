@@ -16,7 +16,7 @@ body{
   
 .ms-header{
     width: 100%;
-    height: 120px;
+    height: 200px;
     background-color: rgb(18, 18, 34);
     background-image: url("../images/bg-header.png");
     background-repeat: repeat-x;
@@ -26,7 +26,7 @@ body{
 .ms-footer{
     width:100%;
     height:80px;
-    background-color:rgb(3, 3, 3);
+    background-color:rgb(211, 211, 211);
 }
 
 .ms-header-part{
@@ -85,9 +85,8 @@ body{
 }
 #searchInput{
     width: 90%;
-    height: 27px;
-    border-radius:3px;
-
+    height: 36px;
+    border-radius: 16px;
     display: block;
     margin-top: 15px;
     font-size: 17px;
@@ -170,10 +169,10 @@ border-radius:50%;
 
 }
 .ms-repo{
-    width:calc(100%/3 - 40px);
+    width:calc(100%/2 - 20px);
     height:250px;
     background-color:rgb(235 235 235);
-    border-bottom:1px solid rgb(163, 163, 163);
+    border-bottom:2px solid rgb(223 56 195);
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     margin:10px;
  
@@ -182,7 +181,7 @@ border-radius:50%;
     width:100%;
     height:40px;
     text-align:center;
-    background-color:#790473;
+    background-color:#2a202a;
     color:white;
     padding:5px 0px;
    
