@@ -1,0 +1,93 @@
+.ms-body-left {
+    width: 100%;
+}
+
+.ms-body-right {
+    margin-top: 0px;
+    width:100%
+}
+.ms-body {
+  
+    flex-direction: column;
+}
+.ms-body-left-alt {
+    position: relative;
+ 
+}
+.ms-repo {
+    width: calc(100%);
+}
+.ms-body-right-cnt{
+    flex-wrap:wrap
+}
+.ms-body-right-top{
+    width: 50%;
+}
+
+.ms-repo-header-cnt {
+    padding-left: 15px;
+    width: 100% !important;
+}
+.ms-body-left-alt {
+
+    height: 200px;
+}
+
+.ms-body-left {
+   padding:0px;
+
+}
+.small-show{
+    display:block
+}
+
+.show-desktop{
+    display:none
+}
+
+.repo-side {
+    height: 600px;
+    overflow-x: hidden;
+}
+
+.ms-footer {
+    background-color: rgb(126 73 117);
+    height:30px;
+}
+
+.ms-body-right-cnt{
+    background-color: white;
+}
+
+.ms-header-title {
+    width: 80%;
+}
+
+.search-result h4 {
+    font-size: 14px;
+ 
+}
+
+.ms-body-right-top span {
+    padding: 7px 10px 7px 5px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+#searchInput {
+    width: 96%;
+    height: 25px;
+}
+.search-result {
+    width: 92%;
+}
+
+.ms-repo {
+
+    background-color: rgb(208 208 208);
+}
+
+.ms-repo-header {
+   
+    background-color: #7e4975;
+}
