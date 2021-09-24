@@ -213,3 +213,16 @@ border-radius:50%;
     height:600px;
     overflow-y:scroll
 }
+.ms-body-left{
+    position:relative
+}
+.ms-body-left-alt{
+
+position:absolute;
+bottom:0;
+left:0;
+    width: 100%;
+    height: 260px;
+    background-image: url("https://d32xj74kbqkoqn.cloudfront.net/uploads/trail/trail_image/33/Github_Banner_1920x1080.jpg");
+    background-size: contain;
+}
