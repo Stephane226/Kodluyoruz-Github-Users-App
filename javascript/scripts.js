@@ -93,33 +93,6 @@ console.log(repositoUrl)
 fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
 
 
-
-
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    // return updateValueApi(datas.results)
      console.log(datas)
   
@@ -136,9 +109,17 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
 
 
         const LanguageApi = "https://api.github.com/repos/" + inputValue.value +"/"+name+"/languages";
-        console.log(LanguageApi)
+        fetch(LanguageApi).then((resp)=> resp.json()).then((languagesData)=>{
 
 
+            // return updateValueApi(datas.results)
+              console.log(languagesData)
+              
+        
+            
+               
+               
+            
 
 
        
@@ -150,7 +131,7 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
            <h3>${name}</h3>
         </div>
         <div class="ms-body-right-top right-top-3 ms-repo-header-cnt">
-            <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Languages :</span></div> <span style="color:red">birazdan hazir olacak</span></div> 
+            <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Languages :</span></div> <span style="color:red">birazdan hazır olacak </span></div> 
             <div> <div class="title-info-repo"> <i class="fas fa-meteor"></i><span>Description :</span></div><span>${description}</span> </div> 
             <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Liscence :</span></div><span>${license}</span></div> 
             <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Fork Allow :</span></div><span>${allowFork}</span></div> 
@@ -158,11 +139,12 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
     </div>
         
         `;
-     });
+   
+ 
  })
 
-
-
+})
+});
     }
     else{
         alert("No User!")
