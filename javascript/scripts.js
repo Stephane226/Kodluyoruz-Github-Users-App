@@ -21,14 +21,6 @@ reposito url https://api.github.com/users/Stephane226/repos
 
 
 
-
-
-
-
-
-
-
-
  const resultArray = Object.keys(languagesData).map((key) => [String(key), languagesData[key]]);
                // console.log(resultArray)
                 resultArray.map((datasLang)=>{
@@ -43,17 +35,6 @@ reposito url https://api.github.com/users/Stephane226/repos
           
                 
 
-
-
-
-
-
-
-
-
-
-
-                
 
 
         function displayLang(){
@@ -121,6 +102,20 @@ async function fetchAPI() {
  const repos_url = results.repos_url;
  const bio = results.bio;
  
+ let initializeSize = new Array;
+ console.log(initializeSize)
+
+const repositoUrls = "https://api.github.com/users/" + inputValue.value + "/repos"
+fetch(repositoUrls).then((resp)=> resp.json()).then((datasUrl)=>{
+
+    datasUrl.forEach(datasUrlData => {
+             initializeSize.push(datasUrlData.size)
+            const totalSize = initializeSize.reduce((a, b) => a + b)
+             document.getElementById("repoSize").innerHTML = totalSize
+
+    })
+
+});
 
 document.getElementById("drop-header-cnt").innerHTML = `
 
@@ -147,7 +142,7 @@ document.getElementById("drop-header-cnt").innerHTML = `
 
 <div class="ms-body-right-top right-top-4">
     <div> <div class="title-info"> <i class="fas fa-user"></i><span>Bio :</span></div><span>${bio}</span></div> 
-    <div> <div class="title-info"> <i class="fas fa-meteor"></i><span>USER NAME :</span></div><span>Stephane226</span></div> 
+    <div> <div class="title-info"> <i class="fas fa-meteor"></i><span>Repos Size :</span></div><span id="repoSize">Stephane226</span></div> 
 
     <div> <div class="title-info"> <i class="fas fa-project-diagram"></i><span>USER NAME :</span></div><span>Stephane226</span></div> 
 </div>
@@ -203,6 +198,7 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
               
 })
 });
+
     }
     else{
         alert("No User!")
