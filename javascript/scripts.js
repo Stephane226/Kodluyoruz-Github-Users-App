@@ -87,7 +87,8 @@ document.getElementById("drop-header-cnt").innerHTML = `
 
 `;
 
-const repositoUrl = "https://api.github.com/users/Stephane226/repos";
+const repositoUrl = "https://api.github.com/users/" + inputValue.value + "/repos";
+console.log(repositoUrl)
 
 fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
    // return updateValueApi(datas.results)
@@ -96,9 +97,13 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
      datas.forEach(element => {
         const allowFork = element.allow_forking;
         const description = element.description;
-      //  const license = element.license.name;
-        const name = element.name;
+    const licenseName = element.license;
+    const license = !licenseName? "No Available": licenseName.name;
 
+  
+ 
+        const name = element.name;
+       
 
         document.getElementById("repositoriesLand").innerHTML += `
         
@@ -107,9 +112,9 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
            <h3>${name}</h3>
         </div>
         <div class="ms-body-right-top right-top-3 ms-repo-header-cnt">
-            <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Languages :</span></div><span>javascript</span> <span>PHP</span> <span>Phyton</span></div> 
+            <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Languages :</span></div> <span style="color:red">birazdan hazir olacak</span></div> 
             <div> <div class="title-info-repo"> <i class="fas fa-meteor"></i><span>Description :</span></div><span>${description}</span> </div> 
-            <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Liscence :</span></div><span>license</span></div> 
+            <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Liscence :</span></div><span>${license}</span></div> 
             <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Fork Allow :</span></div><span>${allowFork}</span></div> 
         </div>
     </div>
