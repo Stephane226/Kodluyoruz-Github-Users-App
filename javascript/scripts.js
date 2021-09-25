@@ -44,7 +44,7 @@ async function fetchAPI() {
  const avatar = results.avatar_url;
  const profileUrl = results.html_url;
  const location = results.location;
- const public_repos = results.public_repos;
+ const public_repos =        !results.public_repos? "No Available":  results.public_repos;        
  const followers = results.followers;
  const following = results.following;
  const repos_url = results.repos_url;
@@ -91,18 +91,56 @@ const repositoUrl = "https://api.github.com/users/" + inputValue.value + "/repos
 console.log(repositoUrl)
 
 fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    // return updateValueApi(datas.results)
      console.log(datas)
   
      datas.forEach(element => {
-        const allowFork = element.allow_forking;
-        const description = element.description;
-    const licenseName = element.license;
-    const license = !licenseName? "No Available": licenseName.name;
 
-  
- 
+        const allowFork =  !element.allow_forking? "Fork Not Allowed :(": "Fork Allowed :)";
+        const description =   !element.description? "Not Available": element.description;
+    const licenseName = element.license;
+    const license = !licenseName? "Not Available": licenseName.name;
         const name = element.name;
+
+
+
+
+
+        const LanguageApi = "https://api.github.com/repos/" + inputValue.value +"/"+name+"/languages";
+        console.log(LanguageApi)
+
+
+
+
        
 
         document.getElementById("repositoriesLand").innerHTML += `
