@@ -17,6 +17,70 @@ const public_repo = document.getElementById("public_repo");
 lang url https://api.github.com/repos/Stephane226/bilim-ve-teknoloji-oyunculari.github.io/languages
 reposito url https://api.github.com/users/Stephane226/repos
 
+
+
+
+
+
+
+
+
+
+
+
+
+ const resultArray = Object.keys(languagesData).map((key) => [String(key), languagesData[key]]);
+               // console.log(resultArray)
+                resultArray.map((datasLang)=>{
+
+
+                  const languageTitle = datasLang[0];
+                  const languageValue = datasLang[1];
+                  console.log(languageTitle + " " + languageValue)
+        
+                })
+               
+          
+                
+
+
+
+
+
+
+
+
+
+
+
+                
+
+
+        function displayLang(){
+            const LanguageApi = "https://api.github.com/repos/" + inputValue.value +"/"+ name+"/languages";
+            console.log(LanguageApi)
+            fetch(LanguageApi).then((resp)=> resp.json()).then((languagesData)=>{
+            
+                    // return updateValueApi(datas.results)
+                   //console.log(languagesData)
+                   
+            
+                   
+             const resultArray = Object.keys(languagesData).map((key) => [String(key), languagesData[key]]);
+             // console.log(resultArray)
+              resultArray.map((datasLang)=>{
+            
+            
+                const languageTitle = datasLang[0];
+                const languageValue = datasLang[1];
+                console.log(languageTitle + "                        " + languageValue)
+            
+              })
+             
+                })
+            }
+            displayLang()
+
 */
 
 //Fetch
@@ -26,6 +90,13 @@ console.log(repoSide)
     let url = "https://api.github.com/users/";
    const inputValue = document.getElementById("searchInput");
 async function fetchAPI() {
+
+
+
+
+
+
+
 
     document.getElementById("repositoriesLand").innerHTML = "";
     try {
@@ -108,20 +179,6 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
 
 
 
-        const LanguageApi = "https://api.github.com/repos/" + inputValue.value +"/"+name+"/languages";
-        fetch(LanguageApi).then((resp)=> resp.json()).then((languagesData)=>{
-
-
-            // return updateValueApi(datas.results)
-              console.log(languagesData)
-              
-        
-            
-               
-               
-            
-
-
        
 
         document.getElementById("repositoriesLand").innerHTML += `
@@ -131,7 +188,7 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
            <h3>${name}</h3>
         </div>
         <div class="ms-body-right-top right-top-3 ms-repo-header-cnt">
-            <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Languages :</span></div> <span style="color:red">birazdan hazır olacak </span></div> 
+            <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Languages :</span></div> <span style="color:green"> birazdan hazir</span></div> 
             <div> <div class="title-info-repo"> <i class="fas fa-meteor"></i><span>Description :</span></div><span>${description}</span> </div> 
             <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Liscence :</span></div><span>${license}</span></div> 
             <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Fork Allow :</span></div><span>${allowFork}</span></div> 
@@ -141,8 +198,9 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
         `;
    
  
- })
+  
 
+              
 })
 });
     }
@@ -160,5 +218,6 @@ document.getElementById("searchClick").addEventListener("click", function(){
     
 
 })
+
 
 

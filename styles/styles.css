@@ -267,3 +267,9 @@ left:0;
     background-color: rgb(126 73 117);
 }
 
+.ms-header-title {
+    width: 19%;
+    height: 46px;
+    background-color: #7e4975;
+    margin-top: 52px !important;
+}
