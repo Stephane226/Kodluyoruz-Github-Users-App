@@ -14,18 +14,10 @@ const following = document.getElementById("following");
 const public_repo = document.getElementById("public_repo");
 
 
+lang url https://api.github.com/repos/Stephane226/bilim-ve-teknoloji-oyunculari.github.io/languages
+reposito url https://api.github.com/users/Stephane226/repos
 
-
-
-
-
-
- 
 */
-
-
-
-
 
 //Fetch
 
@@ -34,6 +26,8 @@ console.log(repoSide)
     let url = "https://api.github.com/users/";
    const inputValue = document.getElementById("searchInput");
 async function fetchAPI() {
+
+    document.getElementById("repositoriesLand").innerHTML = "";
     try {
         
         var urlFetch = url+inputValue.value;
@@ -56,11 +50,6 @@ async function fetchAPI() {
  const repos_url = results.repos_url;
  const bio = results.bio;
  
-
-
-
-
-
 
 document.getElementById("drop-header-cnt").innerHTML = `
 
@@ -98,53 +87,36 @@ document.getElementById("drop-header-cnt").innerHTML = `
 
 `;
 
+const repositoUrl = "https://api.github.com/users/Stephane226/repos";
+
+fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
+   // return updateValueApi(datas.results)
+     console.log(datas)
+  
+     datas.forEach(element => {
+        const allowFork = element.allow_forking;
+        const description = element.description;
+      //  const license = element.license.name;
+        const name = element.name;
 
 
-fetch(repos_url)
-  .then(responseRepo => responseRepo.json)
-  .then(commits => {
-
-    repoSide.innerHTML = commits.map(data =>{
-         
-
-       
-        console.log(data);
-const repoName =data.name;
-console.log(repoName)
-const allow_forking = data.allow_forking;
-
-   
-const contributors_url = data.contributors_url;
-const dateCreated = data.created_at;
-const description = data.description;
-const languagesUsed = data.languages_url;
-const mainLanguage = data.language;
-const liscence = data.license.name;
-
-return `
+        document.getElementById("repositoriesLand").innerHTML += `
         
-<div class="ms-repo">
-<div class="ms-repo-header">
-   <h3>${repoName}</h3>
-</div>
-<div class="ms-body-right-top right-top-3 ms-repo-header-cnt">
-<div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Description :</span></div><span>${description}</span></div> 
-    <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Languages </span>:<span>${mainLanguage}</span></div> 
-    <div> <div class="title-info-repo"> <i class="fas fa-meteor"></i><span>Contributors :</span></div><span></span> </div> 
-    <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Liscence :</span></div><span>${liscence}</span></div> 
-    <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Fork Allow :</span></div><span>${allow_forking}</span></div> 
-</div>
-</div>
-
-
-`
- 
-    
-    })
-    
-})
-
-
+        <div class="ms-repo">
+        <div class="ms-repo-header">
+           <h3>${name}</h3>
+        </div>
+        <div class="ms-body-right-top right-top-3 ms-repo-header-cnt">
+            <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Languages :</span></div><span>javascript</span> <span>PHP</span> <span>Phyton</span></div> 
+            <div> <div class="title-info-repo"> <i class="fas fa-meteor"></i><span>Description :</span></div><span>${description}</span> </div> 
+            <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Liscence :</span></div><span>license</span></div> 
+            <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Fork Allow :</span></div><span>${allowFork}</span></div> 
+        </div>
+    </div>
+        
+        `;
+     });
+ })
 
 
 
