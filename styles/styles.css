@@ -266,10 +266,29 @@ left:0;
 .ms-footer {
     background-color: rgb(126 73 117);
 }
+.ms-repo-header a{
+    text-decoration:none;
 
-.ms-header-title {
-    width: 19%;
-    height: 46px;
-    background-color: #7e4975;
-    margin-top: 52px !important;
 }
+.ms-repo-header{
+    transition: 1s
+}
+.ms-repo-header:hover{
+background-color:rgb(126 73 117);
+font-weight:700 !important
+}
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }

@@ -95,8 +95,8 @@ async function fetchAPI() {
  const userLogin = results.login;
  const avatar = results.avatar_url;
  const profileUrl = results.html_url;
- const location = results.location;
- const public_repos =        !results.public_repos? "No Available":  results.public_repos;        
+ const location = !results.location? "<span style='color:red;font-size:11px;font-weight:600;padding:4px;background-color:black'>LOCATİON HİDED FOR PRIVACY !</span>":  results.location;       
+ const public_repos = !results.public_repos? "No Available":  results.public_repos;        
  const followers = results.followers;
  const following = results.following;
  const repos_url = results.repos_url;
@@ -171,7 +171,7 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
     const license = !licenseName? "Not Available": licenseName.name;
         const name = element.name;
 const mainLanguage =  !element.language? "No Language Detected": element.language;
-
+const htmlUrl = !element.html_url? "": element.html_url;
 
 
 
@@ -180,17 +180,21 @@ const mainLanguage =  !element.language? "No Language Detected": element.languag
         document.getElementById("repositoriesLand").innerHTML += `
         
         <div class="ms-repo">
+        <a href="${htmlUrl}" target="_blank">
         <div class="ms-repo-header">
            <h3>${name}</h3>
         </div>
+        </a>
         <div class="ms-body-right-top right-top-3 ms-repo-header-cnt">
             <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Main Language:</span></div> <span style="color:green"> ${mainLanguage}</span></div> 
             <div> <div class="title-info-repo"> <i class="fas fa-meteor"></i><span>Description :</span></div><span>${description}</span> </div> 
             <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Liscence :</span></div><span>${license}</span></div> 
             <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Fork Allow :</span></div><span>${allowFork}</span></div> 
         </div>
-    </div>
         
+  
+    </div>
+
         `;
    
  
