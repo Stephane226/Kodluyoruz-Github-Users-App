@@ -111,7 +111,8 @@ fetch(repositoUrls).then((resp)=> resp.json()).then((datasUrl)=>{
     datasUrl.forEach(datasUrlData => {
              initializeSize.push(datasUrlData.size)
             const totalSize = initializeSize.reduce((a, b) => a + b)
-             document.getElementById("repoSize").innerHTML = totalSize
+           const  finalSizeValue = totalSize / 1024 
+             document.getElementById("repoSize").innerHTML =  finalSizeValue.toFixed(2) + " MB";
 
     })
 
@@ -142,7 +143,7 @@ document.getElementById("drop-header-cnt").innerHTML = `
 
 <div class="ms-body-right-top right-top-4">
     <div> <div class="title-info"> <i class="fas fa-user"></i><span>Bio :</span></div><span>${bio}</span></div> 
-    <div> <div class="title-info"> <i class="fas fa-meteor"></i><span>Repos Size :</span></div><span id="repoSize">Stephane226</span></div> 
+    <div> <div class="title-info"> <i class="fas fa-meteor"></i><span>Repos Size :</span></div><span id="repoSize" style="background-color:rgb(126 73 117);padding:15px;color:white;border-radius:45%">9.74 MB</span></div> 
 
     <div> <div class="title-info"> <i class="fas fa-project-diagram"></i><span>USER NAME :</span></div><span>Stephane226</span></div> 
 </div>
