@@ -100,7 +100,7 @@ async function fetchAPI() {
  const followers = results.followers;
  const following = results.following;
  const repos_url = results.repos_url;
- const bio = results.bio;
+ const bio =   !results.bio? "No Bio Available": results.bio; 
  
  let initializeSize = new Array;
  console.log(initializeSize)
@@ -128,7 +128,7 @@ document.getElementById("drop-header-cnt").innerHTML = `
   <div> <div class="title-info"> <i class="fas fa-user"></i><span>PSEUDO :</span></div><span id="pseudo">${userLogin}</span></div> 
   <div> <div class="title-info"> <i class="fas fa-meteor"></i><span>USER NAME :</span></div><span id="userName">${userName}</span></div> 
 
-  <div> <div class="title-info"> <i class="fas fa-project-diagram"></i><span>Public Repositories :</span></div><span id="public_repo">${public_repos}</span></div> 
+  <div> <div class="title-info"> <i class="fas fa-project-diagram"></i><span> Repositories :</span></div><span id="public_repo">${public_repos}</span></div> 
 
 </div>
 
@@ -170,7 +170,7 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
     const licenseName = element.license;
     const license = !licenseName? "Not Available": licenseName.name;
         const name = element.name;
-
+const mainLanguage =  !element.language? "No Language Detected": element.language;
 
 
 
@@ -184,7 +184,7 @@ fetch(repositoUrl).then((res)=> res.json()).then((datas)=>{
            <h3>${name}</h3>
         </div>
         <div class="ms-body-right-top right-top-3 ms-repo-header-cnt">
-            <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Languages :</span></div> <span style="color:green"> birazdan hazir</span></div> 
+            <div> <div class="title-info-repo"> <i class="fas fa-user"></i><span>Main Language:</span></div> <span style="color:green"> ${mainLanguage}</span></div> 
             <div> <div class="title-info-repo"> <i class="fas fa-meteor"></i><span>Description :</span></div><span>${description}</span> </div> 
             <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Liscence :</span></div><span>${license}</span></div> 
             <div> <div class="title-info-repo"> <i class="fas fa-project-diagram"></i><span>Fork Allow :</span></div><span>${allowFork}</span></div> 
