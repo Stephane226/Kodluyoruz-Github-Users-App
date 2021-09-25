@@ -12,14 +12,8 @@ const location = document.getElementById("location");
 const followers = document.getElementById("followers");
 const following = document.getElementById("following");
 const public_repo = document.getElementById("public_repo");
-
-
 lang url https://api.github.com/repos/Stephane226/bilim-ve-teknoloji-oyunculari.github.io/languages
 reposito url https://api.github.com/users/Stephane226/repos
-
-
-
-
 
  const resultArray = Object.keys(languagesData).map((key) => [String(key), languagesData[key]]);
                // console.log(resultArray)
@@ -31,12 +25,6 @@ reposito url https://api.github.com/users/Stephane226/repos
                   console.log(languageTitle + " " + languageValue)
         
                 })
-               
-          
-                
-
-
-
         function displayLang(){
             const LanguageApi = "https://api.github.com/repos/" + inputValue.value +"/"+ name+"/languages";
             console.log(LanguageApi)
@@ -61,8 +49,8 @@ reposito url https://api.github.com/users/Stephane226/repos
                 })
             }
             displayLang()
-
 */
+
 
 //Fetch
 
@@ -72,17 +60,10 @@ console.log(repoSide)
    const inputValue = document.getElementById("searchInput");
 async function fetchAPI() {
 
-
-
-
-
-
-
-
     document.getElementById("repositoriesLand").innerHTML = "";
     try {
         
-        var urlFetch = url+inputValue.value;
+        var urlFetch = url+inputValue.value.toLowerCase();
   
 
     const response = await fetch(urlFetch);
@@ -150,8 +131,6 @@ document.getElementById("drop-header-cnt").innerHTML = `
 
 </div>
 
-
-
 `;
 
 const repositoUrl = "https://api.github.com/users/" + inputValue.value + "/repos";
@@ -174,10 +153,7 @@ const mainLanguage =  !element.language? "No Language Detected": element.languag
 const htmlUrl = !element.html_url? "": element.html_url;
 
 
-
-       
-
-        document.getElementById("repositoriesLand").innerHTML += `
+document.getElementById("repositoriesLand").innerHTML += `
         
         <div class="ms-repo">
         <a href="${htmlUrl}" target="_blank">
@@ -196,10 +172,6 @@ const htmlUrl = !element.html_url? "": element.html_url;
     </div>
 
         `;
-   
- 
-  
-
               
 })
 });
@@ -212,8 +184,7 @@ const htmlUrl = !element.html_url? "": element.html_url;
      console.log(e);
     }
    }
-
-  
+ 
 document.getElementById("searchClick").addEventListener("click", function(){
     return fetchAPI();
     
